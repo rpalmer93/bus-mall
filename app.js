@@ -19,3 +19,34 @@ for (var i = 0; i < 20; i++) {
   var name = nameExt[1].split('.')[0];
   new Product(name, imageArray[i]);
 };
+
+function addVote() {
+  Product.clicked++;
+};
+
+function random(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+};
+
+function renderImages() {
+  imageOne.src = Product.allProducts[random(0, 20)].filepath;
+  imageTwo.src = Product.allProducts[random(0, 20)].filepath;
+  imageThree.src = Product.allProducts[random(0, 20)].filepath;
+
+  if ((imageOne.src === imageTwo.src) || (imageOne.src === imageThree.src)) {
+
+    imageOne.src = Product.allProducts[random(0, 20)].filepath
+  };
+  if ((imageTwo.src === imageOne.src) || (imageTwo.src === imageThree.src)) {
+
+    imageTwo.src = Product.allProducts[random(0, 20)].filepath
+  };
+  if ((imageThree.src === imageTwo.src) || (imageThree.src === imageOne.src)) {
+
+    imageThree.src = Product.allProducts[random(0, 20)].filepath
+  };
+};
+
+
+
+renderImages();
