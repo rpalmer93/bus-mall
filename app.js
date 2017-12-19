@@ -1,5 +1,9 @@
 'use strict';
 
+var imageOne = document.getElementById('imageOne');
+var imageTwo = document.getElementById('imageTwo');
+var imageThree = document.getElementById('imageThree');
+
 Product.allProducts = [];
 
 var imageArray = ['img/bag.jpg', 'img/banana.jpg', 'img/bathroom.jpg', 'img/boots.jpg', 'img/breakfast.jpg',
@@ -20,8 +24,25 @@ for (var i = 0; i < 20; i++) {
   new Product(name, imageArray[i]);
 };
 
-function addVote() {
-  Product.clicked++;
+function addVote1() {
+  var imageDisplayed =
+  console.log(imageOne.src);
+  renderImages();
+  ++Product.allProducts[1].clicked;
+  // return .clicked++;
+
+};
+function addVote2() {
+  console.log(imageTwo.src);
+  renderImages();
+  // Product.clicked += 1;
+
+};
+function addVote3() {
+  console.log(imageThree.src);
+  renderImages();
+  // Product.clicked += 1;
+
 };
 
 function random(min, max) {
@@ -47,6 +68,9 @@ function renderImages() {
   };
 };
 
+imageOne.addEventListener('click', addVote1);
+imageTwo.addEventListener('click', addVote2);
+imageThree.addEventListener('click', addVote3);
 
 
 renderImages();
