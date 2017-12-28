@@ -48,7 +48,7 @@ var randomOne, randomTwo, randomThree;
 
 // Shows the images on the page
 var showProducts = function(){
-  // Random number between 0-20 for placeOne
+  // Random number between 0-20 for imageOne
   randomOne = Math.floor(Math.random() * imageArray.length);
   // Display randome images
   imageOne.src = allProducts[randomOne].filepath;
@@ -93,11 +93,11 @@ imageOne.addEventListener('click', function(){
     console.log('numberOfTimesClicked :: ', numberOfTimesClicked);
     // Show chart
     showMyChart();
-    showMyCharttwo ();
+
 
 
   }
-  showImages();
+  showProducts();
 });
 
 imageTwo.addEventListener('click', function(){
@@ -113,9 +113,9 @@ imageTwo.addEventListener('click', function(){
     console.log('numberOfTimesClicked :: ', numberOfTimesClicked);
     // Show chart
     showMyChart();
-    showMyCharttwo ();
+
   }
-  showImages();
+  showProducts();
 });
 
 imageThree.addEventListener('click', function(){
@@ -132,9 +132,9 @@ imageThree.addEventListener('click', function(){
     // Show chart
     document.getElementById('chart');
     showMyChart();
-    showMyCharttwo ();
+
   }
-  showImages();
+  showProducts();
 });
 
 var numberOfTimesShown = [];
