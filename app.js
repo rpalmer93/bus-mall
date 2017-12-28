@@ -19,14 +19,15 @@ function Product(name, filepath) {
   this.image = filepath.split('/')[1];
   this.name = this.image.split('.')[0];
   this.timesShown = 0;
+  this.shown = false;
   this.clicked = 0;
   this.previouslyShown = false;
   Product.allProducts.push(this);
 };
 
 for (var i = 0; i < 20; i++) {
-  var nameExt = imageArray[i].split('/');
-  var name = nameExt[1].split('.')[0];
+  var nameExt = imageArray[i].split('/')[1];
+  var name = nameExt.split('.')[0];
   new Product(name, imageArray[i]);
 };
 
