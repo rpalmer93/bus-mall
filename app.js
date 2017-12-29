@@ -30,7 +30,7 @@ function ImageConstructor(filepath) {
 }
 
 var createProductsArray = function(){
-  for(var i = 0; i < allProducts.length; i++){
+  for(var i = 0; i < imageArray.length; i++){
     new ImageConstructor(imageArray[i]);
   }
   console.log('allProducts');
