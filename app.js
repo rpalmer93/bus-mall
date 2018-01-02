@@ -4,7 +4,7 @@
 
 // Array of all images
 var imageArray = ['bag.jpg','banana.jpg','bathroom.jpg','boots.jpg','breakfast.jpg','bubblegum.jpg',
-'chair.jpg','cthulhu.jpg','dog-duck.jpg','dragon.jpg','dragon.jpg','pen.jpg','pet-sweep.jpg',
+'chair.jpg','cthulhu.jpg','dog-duck.jpg','dragon.jpg','pen.jpg','pet-sweep.jpg',
 'scissors.jpg','shark.jpg','sweep.png','tauntaun.jpg','unicorn.jpg','usb.gif','water-can.jpg',
 'wine-glass.jpg'];
 
@@ -60,15 +60,15 @@ var showProducts = function(){
   while (randomOne === randomTwo) {
     randomTwo = Math.floor(Math.random() * imageArray.length);
   };
-  placeTwo.src = allProducts[randomTwo].filepath;
+  imageTwo.src = allProducts[randomTwo].filepath;
   allProducts[randomTwo].numShown += 1;
 
 
   randomThree = Math.floor(Math.random() * imageArray.length);
   while (randomOne === randomThree || randomTwo === randomThree) {
-    randThree = Math.floor(Math.random() * imageArray.length);
+    randomThree = Math.floor(Math.random() * imageArray.length);
   }
-  placeThree.src = allProducts[randomThree].filepath;
+  imageThree.src = allProducts[randomThree].filepath;
   allProducts[randomThree].numShown += 1;
 
   console.log([randomOne, randomTwo, randomThree]);
@@ -79,14 +79,19 @@ showProducts();
 
 var counter = 0;
 
+function save(){
+  localStorage.list = JSON.stringify(allProducts)
+}
+
 // Event Listeners when images are clicked
 imageOne.addEventListener('click', function(){
   allProducts[randomOne].numClicks += 1;
   counter += 1;
-  if (counter >= 25) {
+  if (counter == 25) {
     // Remove the images
     save();
-    document.getElementById('imageHolder').remove();
+    var imageBox= document.getElementById('images')
+    imageBox.innerHTML = " "
     // Collect Data
     collectData();
     console.log('numberOfTimesShown :: ', numberOfTimesShown);
@@ -106,7 +111,8 @@ imageTwo.addEventListener('click', function(){
   if (counter >= 25) {
     // Remove the images
     save();
-    document.getElementById('imageHolder').remove();
+    var imageBox= document.getElementById('images')
+    imageBox.innerHTML = " "
     // Collect Data
     collectData();
     console.log('numberOfTimesShown :: ', numberOfTimesShown);
@@ -124,7 +130,8 @@ imageThree.addEventListener('click', function(){
   if (counter >= 25) {
     // Remove the images
     save();
-    document.getElementById('imageHolder').remove();
+    var imageBox= document.getElementById('images')
+    imageBox.innerHTML = " "
     // Collect Data
     collectData();
     console.log('numberOfTimesShown :: ', numberOfTimesShown);
@@ -153,6 +160,8 @@ var collectData = function() {
     numberOfTimesClicked.push(allProducts[i].numClicks);
   };
 };
+console.log('numberOfTimesShown', numberOfTimesShown)
+console.log('numberOfTimesClicked', numberOfTimesClicked)
 
 
 function showMyChart (){
@@ -226,7 +235,4 @@ function showMyChart (){
         }
     }
 });
-
-function save(){
-  localStorage.list = JSON.stringify(allProducts);
 }
