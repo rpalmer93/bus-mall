@@ -1,6 +1,14 @@
+html {
+  background-color: #000000
+}
+
 body {
   width: 960px;
   margin: 0px auto;
+}
+
+h1 {
+  color: #ffffff;
 }
 
 header {
@@ -27,6 +35,12 @@ main {
 	height: : 300px;
 	float:left;
 	}
+
+  #surveyPrompt {
+    text-align: center;
+    color: #ffffff;
+    font-size: 18px;
+  }
 
  footer {
 
